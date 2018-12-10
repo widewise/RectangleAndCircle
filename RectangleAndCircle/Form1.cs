@@ -18,7 +18,8 @@ namespace RectangleAndCircle
 
             pen = new Pen(Color.Black, 1);
             g = panel1.CreateGraphics();
-            _circleFiller = new CircleFiller();
+            var rectangleGenerator = new RectangleGenerator();
+            _circleFiller = new CircleFiller(rectangleGenerator);
         }
 
         private void button1_Click(object sender, EventArgs e)

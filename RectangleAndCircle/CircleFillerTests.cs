@@ -11,7 +11,8 @@ namespace RectangleAndCircle
         [SetUp]
         public void Setup()
         {
-            _circleFiller = new CircleFiller();
+            var rectangleGenerator = new RectangleGenerator();
+            _circleFiller = new CircleFiller(rectangleGenerator);
         }
         [Test]
         public void ShouldThrowWhenRadiusIsZero()
