@@ -1,0 +1,40 @@
+bin/
+obj/
+*.suo
+*.user
+*.vspscc
+*.vssscc
+*.dbmdl
+*.DotSettings.user
+*.DotSettings
+
+# Visual Studio 2015 cache/options directory
+.vs/
+
+#Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+.build/*
+
+#Project files
+[Bb]uild/
+[Aa]rtifacts/
+
+# Rider
+.idea/
+
+*/packages/*
+!*/packages/repositories.config
+
+ptkb-web-api/ContentService/Is.WebApiService/App_Data/Is.WebApiService.xml
+ptkb-web-api/ContentService/Is.WebApiService/App_Data/PT.KB.DomainObjects.xml
+ptkb-web-api/ContentService/Is.WebApiService/App_Data/PT.KB.Dtos.xml
+ptkb-web-api/ContentService/Is.WebApiService/App_Data/PT.KB.Studio.Dto.xml
+ptkb-web-api/ContentService/Es.WebApiService/App_Data/Es.WebApiService.xml
+
+# Visual Studio 2017 Database Project files
+*.jfm
+/ptkb-web-api/Is.WebApiService/App_Data/PT.KB.Dtos.xml
+/ptkb-web-api/Is.WebApiService/App_Data/Is.WebApiService.xml
+/ptkb-web-api/Is.WebApiService/App_Data/PT.KB.Studio.Dto.xml
