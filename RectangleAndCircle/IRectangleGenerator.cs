@@ -2,6 +2,6 @@
 {
     public interface IRectangleGenerator
     {
-        RectangleParams GenerateRectangle(double epsilon);
+        RectangleParams GenerateRectangle(int epsilon);
     }
 }

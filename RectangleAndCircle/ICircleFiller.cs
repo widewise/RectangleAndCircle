@@ -4,6 +4,6 @@ namespace RectangleAndCircle
 {
     public interface ICircleFiller
     {
-        IEnumerable<RectangleD> GetRectangles(double radius, double rectangleMinSize);
+        IEnumerable<RectangleD> GetRectangles(int radius, int epsilon);
     }
 }

@@ -4,12 +4,12 @@ namespace RectangleAndCircle
 {
     public class RectangleParams
     {
-        public double A { get; }
-        public double B { get; }
+        public int A { get; }
+        public int B { get; }
 
         public RectangleParams(
-            double a,
-            double b)
+            int a,
+            int b)
         {
             if (a <= 0)
             {

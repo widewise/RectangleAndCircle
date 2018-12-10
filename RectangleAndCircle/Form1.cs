@@ -18,14 +18,14 @@ namespace RectangleAndCircle
 
             pen = new Pen(Color.Black, 1);
             g = panel1.CreateGraphics();
-            var rectangleGenerator = new RectangleGenerator();
+            var rectangleGenerator = new RandomRectangleGenerator();
             _circleFiller = new CircleFiller(rectangleGenerator);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var radius = (float) radiusEditor.Value;
-            var minRectangleSize = (float) minRectangleSizeEditor.Value;
+            var radius = (int) radiusEditor.Value;
+            var minRectangleSize = (int) minRectangleSizeEditor.Value;
 
             var revtangles = _circleFiller.GetRectangles(radius, minRectangleSize);
 

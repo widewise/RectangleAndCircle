@@ -11,27 +11,34 @@ namespace RectangleAndCircle
         [SetUp]
         public void Setup()
         {
-            var rectangleGenerator = new RectangleGenerator();
+            var rectangleGenerator = new RandomRectangleGenerator();
             _circleFiller = new CircleFiller(rectangleGenerator);
         }
+
         [Test]
         public void ShouldThrowWhenRadiusIsZero()
         {
             Action action = () => _circleFiller.GetRectangles(0, 1);
+
             action.Should().Throw<ArgumentException>();
         }
 
         [Test]
-        public void ShouldThrowWhenRectangleMinSizeIsZero()
+        public void ShouldThrowWhenRadiusEqualMinRadius()
         {
-            Action action = () => _circleFiller.GetRectangles(1, 0);
+            Action action = () => _circleFiller.GetRectangles(CircleFiller.MinRadius, 1);
+
             action.Should().Throw<ArgumentException>();
         }
 
         [Test]
-        public void ShouldThrowWhenRadiusLessZero()
+        public void ShouldThrowWhenEpsilonMoreRadius()
         {
-            Action action = () => _circleFiller.GetRectangles(-1, 1);
+            var radius = 2;
+            var epsilon = radius + 1;
+
+            Action action = () => _circleFiller.GetRectangles(radius, epsilon);
+
             action.Should().Throw<ArgumentException>();
         }
 
@@ -45,7 +52,7 @@ namespace RectangleAndCircle
         [Test]
         public void ShouldOneRectangleWhenRectangleMinSizeAndRadiusRatioEqualSqrt2()
         {
-            var radius = Math.Sqrt(2);
+            var radius = 1;
             var rectangleMinSize = 2;
 
             var rectangles = _circleFiller.GetRectangles(radius, rectangleMinSize);

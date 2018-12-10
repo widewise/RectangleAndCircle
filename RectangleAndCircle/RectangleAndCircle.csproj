@@ -69,8 +69,10 @@
     <Compile Include="IRectangleGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomRectangleGeneratorTests.cs" />
     <Compile Include="RectangleD.cs" />
-    <Compile Include="RectangleGenerator.cs" />
+    <Compile Include="RandomRectangleGenerator.cs" />
+    <Compile Include="RectangleDTests.cs" />
     <Compile Include="RectangleParams.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
