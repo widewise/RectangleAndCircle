@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,28 +7,33 @@ namespace RectangleAndCircle
 {
     public partial class Form1 : Form
     {
-        private Graphics g;
-        private Pen pen;
         private int centerX = 300;
         private int centerY = 300;
-        private readonly ICircleFiller _circleFiller;
 
         public Form1()
         {
             InitializeComponent();
-
-            pen = new Pen(Color.Black, 1);
-            g = panel1.CreateGraphics();
-            var rectangleGenerator = new RandomRectangleGenerator();
-            _circleFiller = new CircleFiller(rectangleGenerator);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var radius = (int) radiusEditor.Value;
-            var minRectangleSize = (int) minRectangleSizeEditor.Value;
+            var epsilon = (int) epsilonEditor.Value;
 
-            var revtangles = _circleFiller.GetRectangles(radius, minRectangleSize);
+            var rectangleGenerator = new RandomRectangleGenerator(epsilon);
+            var inCircleChecker = new InCircleChecker();
+            var compactor = new Compactor(radius, inCircleChecker);
+            var circleFiller = new CircleFiller(rectangleGenerator, compactor);
+
+            var rectangles = circleFiller.GetRectangles();
+
+            DrawRectangles(rectangles, radius);
+        }
+
+        private void DrawRectangles(IEnumerable<RectangleD> revtangles, int radius)
+        {
+            var pen = new Pen(Color.Black, 1);
+            var g = panel1.CreateGraphics();
 
             g.Clear(Color.White);
 

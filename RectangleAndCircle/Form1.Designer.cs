@@ -32,10 +32,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.radiusEditor = new System.Windows.Forms.NumericUpDown();
-            this.minRectangleSizeEditor = new System.Windows.Forms.NumericUpDown();
+            this.epsilonEditor = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.radiusEditor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minRectangleSizeEditor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epsilonEditor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,17 +94,17 @@
             // 
             // minRectangleSizeEditor
             // 
-            this.minRectangleSizeEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.minRectangleSizeEditor.Location = new System.Drawing.Point(232, 649);
-            this.minRectangleSizeEditor.Maximum = new decimal(new int[] {
+            this.epsilonEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.epsilonEditor.Location = new System.Drawing.Point(232, 649);
+            this.epsilonEditor.Maximum = new decimal(new int[] {
             400,
             0,
             0,
             0});
-            this.minRectangleSizeEditor.Name = "minRectangleSizeEditor";
-            this.minRectangleSizeEditor.Size = new System.Drawing.Size(74, 20);
-            this.minRectangleSizeEditor.TabIndex = 4;
-            this.minRectangleSizeEditor.Value = new decimal(new int[] {
+            this.epsilonEditor.Name = "epsilonEditor";
+            this.epsilonEditor.Size = new System.Drawing.Size(74, 20);
+            this.epsilonEditor.TabIndex = 4;
+            this.epsilonEditor.Value = new decimal(new int[] {
             200,
             0,
             0,
@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 678);
-            this.Controls.Add(this.minRectangleSizeEditor);
+            this.Controls.Add(this.epsilonEditor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radiusEditor);
             this.Controls.Add(this.label1);
@@ -137,7 +137,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.radiusEditor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minRectangleSizeEditor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epsilonEditor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,7 +149,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown radiusEditor;
-        private System.Windows.Forms.NumericUpDown minRectangleSizeEditor;
+        private System.Windows.Forms.NumericUpDown epsilonEditor;
         private System.Windows.Forms.Label label2;
     }
 }

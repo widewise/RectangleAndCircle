@@ -4,18 +4,25 @@ namespace RectangleAndCircle
 {
     public class RandomRectangleGenerator : IRectangleGenerator
     {
-        public const int MinSize = 1;
+        private readonly int _epsilon;
         private readonly Random _random = new Random();
+        public const int MinSize = 1;
+        public int Epsilon => _epsilon;
 
-        public RectangleParams GenerateRectangle(int epsilon)
+        public RandomRectangleGenerator(int epsilon)
         {
             if (epsilon <= MinSize)
             {
-                throw new ArgumentException(nameof(epsilon));
+                throw new ArgumentException(nameof(_epsilon));
             }
 
-            var a = _random.Next(MinSize, epsilon);
-            var b = _random.Next(MinSize, epsilon);
+            _epsilon = epsilon;
+        }
+
+        public RectangleParams GenerateRectangle()
+        {
+            var a = _random.Next(MinSize, _epsilon);
+            var b = _random.Next(MinSize, _epsilon);
 
             return new RectangleParams(a, b);
         }

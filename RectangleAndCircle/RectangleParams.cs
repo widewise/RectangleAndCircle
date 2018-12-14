@@ -4,24 +4,24 @@ namespace RectangleAndCircle
 {
     public class RectangleParams
     {
-        public int A { get; }
-        public int B { get; }
+        public int Width { get; }
+        public int Height { get; }
 
         public RectangleParams(
-            int a,
-            int b)
+            int width,
+            int height)
         {
-            if (a <= 0)
+            if (width <= 0)
             {
-                throw new ArgumentException(nameof(a));
+                throw new ArgumentException(nameof(width));
             }
-            if (b <= 0)
+            if (height <= 0)
             {
-                throw new ArgumentException(nameof(b));
+                throw new ArgumentException(nameof(height));
             }
 
-            A = a;
-            B = b;
+            Width = width;
+            Height = height;
         }
     }
 }

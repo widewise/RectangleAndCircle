@@ -6,16 +6,10 @@ namespace RectangleAndCircle
 {
     public class RandomRectangleGeneratorTests
     {
-        private IRectangleGenerator _rectangleGenerator;
-        [SetUp]
-        public void Setup()
-        {
-            _rectangleGenerator = new RandomRectangleGenerator();
-        }
         [Test]
         public void SouldThrowThenEpsilonLessMinSize()
         {
-            Action action = () => _rectangleGenerator.GenerateRectangle(RandomRectangleGenerator.MinSize);
+            Action action = () => new RandomRectangleGenerator(RandomRectangleGenerator.MinSize - 1);
             action.Should().Throw<ArgumentException>();
         }
 
@@ -23,14 +17,15 @@ namespace RectangleAndCircle
         public void SouldGetRectangleParamsThenEpsilonMoreMinSize()
         {
             var epsilon = 100;
+            var rectangleGenerator = new RandomRectangleGenerator(epsilon);
 
-            var recParams = _rectangleGenerator.GenerateRectangle(epsilon);
+            var recParams = rectangleGenerator.GenerateRectangle();
 
             recParams.Should().NotBeNull();
-            recParams.A.Should().BeGreaterOrEqualTo(RandomRectangleGenerator.MinSize);
-            recParams.A.Should().BeLessOrEqualTo(epsilon);
-            recParams.B.Should().BeGreaterOrEqualTo(RandomRectangleGenerator.MinSize);
-            recParams.B.Should().BeLessOrEqualTo(epsilon);
+            recParams.Width.Should().BeGreaterOrEqualTo(RandomRectangleGenerator.MinSize);
+            recParams.Width.Should().BeLessOrEqualTo(epsilon);
+            recParams.Height.Should().BeGreaterOrEqualTo(RandomRectangleGenerator.MinSize);
+            recParams.Height.Should().BeLessOrEqualTo(epsilon);
         }
     }
 }
