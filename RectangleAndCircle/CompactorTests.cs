@@ -8,6 +8,7 @@ namespace RectangleAndCircle
     public class CompactorTests
     {
         private IInCircleChecker _inCircleChecker;
+
         [SetUp]
         public void Setup()
         {
@@ -16,7 +17,7 @@ namespace RectangleAndCircle
         [Test]
         public void ShouldTrueThenAddRectangleWithWidthAndHeightLessDiameter()
         {
-            var compactor = new Compactor(10, _inCircleChecker);
+            var compactor = new Compactor(new CompactorSettings(10, 1), _inCircleChecker);
             var rectangleParams = new RectangleParams(2, 3);
 
             var isAdded = compactor.AddRectangle(rectangleParams);
@@ -27,7 +28,7 @@ namespace RectangleAndCircle
         [Test]
         public void ShouldFalseThenAddRectangleWidthMoreDiameter()
         {
-            var compactor = new Compactor(2, _inCircleChecker);
+            var compactor = new Compactor(new CompactorSettings(2, 1), _inCircleChecker);
             var rectangleParams = new RectangleParams(5, 3);
 
             Action action = () => compactor.AddRectangle(rectangleParams);
@@ -38,7 +39,7 @@ namespace RectangleAndCircle
         [Test]
         public void ShouldFalseThenAddRectangleHeightMoreDiameter()
         {
-            var compactor = new Compactor(2, _inCircleChecker);
+            var compactor = new Compactor(new CompactorSettings(2, 1), _inCircleChecker);
             var rectangleParams = new RectangleParams(3, 5);
 
             Action action = () => compactor.AddRectangle(rectangleParams);
@@ -50,9 +51,10 @@ namespace RectangleAndCircle
         public void ShouldCompartRectangleOnCircleThenAddRectangleWithMaxWidthAndHeight()
         {
             var radius = 5;
+            var addAttemptCount = 1;
             var width = 6;
             var height = 8;
-            var compactor = new Compactor(radius, _inCircleChecker);
+            var compactor = new Compactor(new CompactorSettings(radius, addAttemptCount), _inCircleChecker);
             var rectangleParams = new RectangleParams(width, height);
 
             var isAdded = compactor.AddRectangle(rectangleParams);

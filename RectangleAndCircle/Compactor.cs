@@ -6,41 +6,43 @@ namespace RectangleAndCircle
 {
     public class Compactor : ICompactor
     {
-        private readonly int _radius;
+        private readonly CompactorSettings _settings;
         private readonly IInCircleChecker _inCircleChecker;
         private readonly int _diameter;
         private readonly IList<RectangleD> _rectangles;
-
-        public const int MinRadius = 1;
+        private readonly Random _random = new Random();
 
         public IEnumerable<RectangleD> Rectangles => _rectangles.ToArray();
-        public int Radius => _radius;
+        public int Radius => _settings.Radius;
 
         public Compactor(
-            int radius,
+            CompactorSettings settings,
             IInCircleChecker inCircleChecker)
         {
-            if (radius <= MinRadius)
-            {
-                throw new ArgumentException(nameof(radius));
-            }
-
-            _radius = radius;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _inCircleChecker = inCircleChecker ?? throw new ArgumentNullException(nameof(inCircleChecker));
 
-            _diameter = radius * 2;
+            _diameter = _settings.Radius * 2;
             _rectangles = new List<RectangleD>();
         }
 
         public bool AddRectangle(RectangleParams rectangleParams)
         {
-            var rectangleD = GenerateRectangleInCircle(rectangleParams);
-            if (_rectangles.Any(r => r.IsIntersect(rectangleD)))
+            var addAttemptCount = _settings.AddAttemptCount;
+            RectangleD rectangle;
+            do
             {
-                return false;
-            }
+                if (addAttemptCount == 0)
+                {
+                    return false;
+                }
 
-            _rectangles.Add(rectangleD);
+                rectangle = GenerateRectangleInCircle(rectangleParams);
+                addAttemptCount--;
+            }
+            while (_rectangles.Any(r => r.IsIntersect(rectangle)));
+
+            _rectangles.Add(rectangle);
             return true;
         }
 
@@ -52,12 +54,12 @@ namespace RectangleAndCircle
             }
 
             var recRadius = Math.Sqrt(rectangleParams.Width * rectangleParams.Width + rectangleParams.Height * rectangleParams.Height) / 2;
-            if (recRadius > _radius)
+            if (recRadius > _settings.Radius)
             {
-                throw new PythagorasException(rectangleParams.Width, rectangleParams.Height, _radius);
+                throw new PythagorasException(rectangleParams.Width, rectangleParams.Height, _settings.Radius);
             }
 
-            if (recRadius == _radius)
+            if (recRadius == _settings.Radius)
             {
                 return new RectangleD(
                     -rectangleParams.Width / 2,
@@ -67,13 +69,12 @@ namespace RectangleAndCircle
             }
 
             int x, y;
-            var random = new Random();
             do
             {
-                x = random.Next(_diameter) - _radius;
-                y = random.Next(_diameter) - _radius;
+                x = _random.Next(_diameter) - _settings.Radius;
+                y = _random.Next(_diameter) - _settings.Radius;
             }
-            while (!_inCircleChecker.RectangleInCricle(x, y, rectangleParams.Width, rectangleParams.Height, _radius));
+            while (!_inCircleChecker.RectangleInCricle(x, y, rectangleParams.Width, rectangleParams.Height, _settings.Radius));
 
             return new RectangleD(x, y, rectangleParams.Width, rectangleParams.Height);
         }
