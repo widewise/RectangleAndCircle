@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RectangleAndCircle.Compactor.InCircleChecker;
+using RectangleAndCircle.Compactor.Settings;
+using RectangleAndCircle.Rectangle;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.Compactor
 {
-    public class Compactor : ICompactor
+    internal class Compactor : ICompactor
     {
         private readonly CompactorSettings _settings;
         private readonly IInCircleChecker _inCircleChecker;
@@ -15,7 +18,7 @@ namespace RectangleAndCircle
         public IEnumerable<RectangleD> Rectangles => _rectangles.ToArray();
         public int Radius => _settings.Radius;
 
-        public Compactor(
+        internal Compactor(
             CompactorSettings settings,
             IInCircleChecker inCircleChecker)
         {

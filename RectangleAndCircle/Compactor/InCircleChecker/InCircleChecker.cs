@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.Compactor.InCircleChecker
 {
-    public class InCircleChecker : IInCircleChecker
+    internal class InCircleChecker : IInCircleChecker
     {
         public bool RectangleInCricle(int x, int y, int width, int height, int radius)
         {

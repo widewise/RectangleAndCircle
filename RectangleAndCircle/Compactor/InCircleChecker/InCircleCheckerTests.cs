@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.Compactor.InCircleChecker
 {
     public class InCircleCheckerTests
     {

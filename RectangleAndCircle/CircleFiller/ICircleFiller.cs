@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using RectangleAndCircle.Rectangle;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.CircleFiller
 {
     public interface ICircleFiller
     {

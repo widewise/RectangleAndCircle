@@ -1,4 +1,6 @@
-﻿namespace RectangleAndCircle
+﻿using RectangleAndCircle.Rectangle;
+
+namespace RectangleAndCircle.RectangleGenerator
 {
     public interface IRectangleGenerator
     {

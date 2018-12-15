@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using RectangleAndCircle.CircleFiller;
+using RectangleAndCircle.Rectangle;
 
 namespace RectangleAndCircle
 {
@@ -20,10 +22,7 @@ namespace RectangleAndCircle
             var radius = (int) radiusEditor.Value;
             var epsilon = (int) epsilonEditor.Value;
 
-            var rectangleGenerator = new RandomRectangleGenerator(epsilon);
-            var inCircleChecker = new InCircleChecker();
-            var compactor = new Compactor(radius, inCircleChecker);
-            var circleFiller = new CircleFiller(rectangleGenerator, compactor);
+            var circleFiller = CircleFillerFactory.Create(radius, 10, epsilon);
 
             var rectangles = circleFiller.GetRectangles();
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.Rectangle
 {
     public class RectangleParams
     {

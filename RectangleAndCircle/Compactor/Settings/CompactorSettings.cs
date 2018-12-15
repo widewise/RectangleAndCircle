@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.Compactor.Settings
 {
     public class CompactorSettings
     {
@@ -17,7 +17,7 @@ namespace RectangleAndCircle
                 throw new ArgumentException(nameof(radius));
             }
 
-            if (addAttemptCount > 0)
+            if (addAttemptCount <= 0)
             {
                 throw new ArgumentException(nameof(addAttemptCount));
             }

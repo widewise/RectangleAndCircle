@@ -1,6 +1,7 @@
 ﻿using System;
+using RectangleAndCircle.Rectangle;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.RectangleGenerator
 {
     public class RandomRectangleGenerator : IRectangleGenerator
     {

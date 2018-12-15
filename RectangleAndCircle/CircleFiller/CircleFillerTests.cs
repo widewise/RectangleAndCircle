@@ -2,8 +2,10 @@
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
+using RectangleAndCircle.Compactor;
+using RectangleAndCircle.RectangleGenerator;
 
-namespace RectangleAndCircle
+namespace RectangleAndCircle.CircleFiller
 {
     public class CircleFillerTests
     {

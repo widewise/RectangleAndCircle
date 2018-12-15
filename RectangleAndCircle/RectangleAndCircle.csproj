@@ -74,31 +74,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CircleFiller.cs" />
-    <Compile Include="CircleFillerTests.cs" />
-    <Compile Include="Compactor.cs" />
-    <Compile Include="CompactorSettings.cs" />
-    <Compile Include="CompactorTests.cs" />
+    <Compile Include="CircleFiller\CircleFiller.cs" />
+    <Compile Include="CircleFiller\CircleFillerFactory.cs" />
+    <Compile Include="CircleFiller\CircleFillerTests.cs" />
+    <Compile Include="Compactor\Compactor.cs" />
+    <Compile Include="Compactor\CompactorFactory.cs" />
+    <Compile Include="Compactor\Settings\CompactorSettings.cs" />
+    <Compile Include="Compactor\Settings\CompactorSettingsTests.cs" />
+    <Compile Include="Compactor\CompactorTests.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ICircleFiller.cs" />
-    <Compile Include="ICompactor.cs" />
-    <Compile Include="IInCircleChecker.cs" />
-    <Compile Include="InCircleChecker.cs" />
-    <Compile Include="InCircleCheckerTests.cs" />
-    <Compile Include="IRectangleGenerator.cs" />
+    <Compile Include="CircleFiller\ICircleFiller.cs" />
+    <Compile Include="Compactor\ICompactor.cs" />
+    <Compile Include="Compactor\InCircleChecker\IInCircleChecker.cs" />
+    <Compile Include="Compactor\InCircleChecker\InCircleChecker.cs" />
+    <Compile Include="Compactor\InCircleChecker\InCircleCheckerTests.cs" />
+    <Compile Include="RectangleGenerator\IRectangleGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PythagorasException.cs" />
-    <Compile Include="RandomRectangleGeneratorTests.cs" />
-    <Compile Include="RectangleD.cs" />
-    <Compile Include="RandomRectangleGenerator.cs" />
-    <Compile Include="RectangleDTests.cs" />
-    <Compile Include="RectangleParams.cs" />
+    <Compile Include="Compactor\PythagorasException.cs" />
+    <Compile Include="RectangleGenerator\RandomRectangleGeneratorTests.cs" />
+    <Compile Include="Rectangle\RectangleD.cs" />
+    <Compile Include="RectangleGenerator\RandomRectangleGenerator.cs" />
+    <Compile Include="Rectangle\RectangleDTests.cs" />
+    <Compile Include="Rectangle\RectangleParams.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
