@@ -2,7 +2,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace RectangleAndCircle.RectangleGenerator
+namespace RectangleAndCircle.RectangleParamsGenerator
 {
     public class RectangleParamsGeneratorTests
     {

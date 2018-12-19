@@ -1,6 +1,6 @@
 ﻿using RectangleAndCircle.Rectangle;
 
-namespace RectangleAndCircle.RectangleGenerator
+namespace RectangleAndCircle.RectangleParamsGenerator
 {
     public interface IRectangleParamsGenerator
     {

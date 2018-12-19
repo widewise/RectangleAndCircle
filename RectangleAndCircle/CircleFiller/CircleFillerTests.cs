@@ -3,7 +3,7 @@ using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using RectangleAndCircle.Compactor;
-using RectangleAndCircle.RectangleGenerator;
+using RectangleAndCircle.RectangleParamsGenerator;
 
 namespace RectangleAndCircle.CircleFiller
 {

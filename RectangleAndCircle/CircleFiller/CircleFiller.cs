@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using RectangleAndCircle.Compactor;
 using RectangleAndCircle.Rectangle;
-using RectangleAndCircle.RectangleGenerator;
+using RectangleAndCircle.RectangleParamsGenerator;
 
 namespace RectangleAndCircle.CircleFiller
 {

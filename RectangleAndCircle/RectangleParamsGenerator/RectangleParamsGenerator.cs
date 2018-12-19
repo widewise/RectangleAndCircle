@@ -1,7 +1,7 @@
 ﻿using System;
 using RectangleAndCircle.Rectangle;
 
-namespace RectangleAndCircle.RectangleGenerator
+namespace RectangleAndCircle.RectangleParamsGenerator
 {
     public class RectangleParamsGenerator : IRectangleParamsGenerator
     {

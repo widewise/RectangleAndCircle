@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RectangleAndCircle.Compactor
+namespace RectangleAndCircle.RectangleGenerator
 {
     public class PythagorasException : Exception
     {
