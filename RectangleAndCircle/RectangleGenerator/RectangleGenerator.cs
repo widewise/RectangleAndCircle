@@ -5,7 +5,7 @@ using RectangleAndCircle.RectangleGenerator.InCircleChecker;
 
 namespace RectangleAndCircle.RectangleGenerator
 {
-    public class RectangleGenerator : IRectangleGenerator
+    internal class RectangleGenerator : IRectangleGenerator
     {
         private readonly int _radius;
         private readonly int _diameter;
@@ -14,7 +14,7 @@ namespace RectangleAndCircle.RectangleGenerator
         public const int MinRadius = 1;
         public int Radius => _radius;
 
-        public RectangleGenerator(
+        internal RectangleGenerator(
             int radius,
             IInCircleChecker inCircleChecker)
         {

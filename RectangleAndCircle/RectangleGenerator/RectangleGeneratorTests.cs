@@ -16,7 +16,7 @@ namespace RectangleAndCircle.RectangleGenerator
         }
 
         [Test]
-        public void ShouldTrueThenAddRectangleWithWidthAndHeightLessDiameter()
+        public void ShouldGetRectangleThenAddRectangleWithWidthAndHeightLessDiameter()
         {
             var generator = RectangleGeneratorFactory.Create(10);
             var rectangleParams = new RectangleParams(2, 3);

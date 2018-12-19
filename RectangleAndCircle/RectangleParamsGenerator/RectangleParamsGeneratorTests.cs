@@ -16,7 +16,7 @@ namespace RectangleAndCircle.RectangleParamsGenerator
         [Test]
         public void SouldGetRectangleParamsThenEpsilonMoreMinSize()
         {
-            var epsilon = 100;
+            const int epsilon = 100;
             var rectangleGenerator = new RectangleParamsGenerator(epsilon);
 
             var recParams = rectangleGenerator.GenerateRectangleParams();

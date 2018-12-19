@@ -104,6 +104,7 @@
     <Compile Include="Rectangle\RectangleD.cs" />
     <Compile Include="Rectangle\RectangleDTests.cs" />
     <Compile Include="Rectangle\RectangleParams.cs" />
+    <Compile Include="Rectangle\RectangleParamsTests.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
