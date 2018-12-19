@@ -1,4 +1,4 @@
-﻿namespace RectangleAndCircle.Compactor.InCircleChecker
+﻿namespace RectangleAndCircle.RectangleGenerator.InCircleChecker
 {
     public interface IInCircleChecker
     {

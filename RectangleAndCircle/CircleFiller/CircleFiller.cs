@@ -8,30 +8,30 @@ namespace RectangleAndCircle.CircleFiller
 {
     internal class CircleFiller : ICircleFiller
     {
-        private readonly IRectangleGenerator _rectangleGenerator;
+        private readonly IRectangleParamsGenerator _rectangleParamsGenerator;
         private readonly ICompactor _compactor;
 
         internal CircleFiller(
-            IRectangleGenerator rectangleGenerator,
+            IRectangleParamsGenerator rectangleParamsGenerator,
             ICompactor compactor)
         {
-            _rectangleGenerator = rectangleGenerator ?? throw new ArgumentNullException(nameof(rectangleGenerator));
+            _rectangleParamsGenerator = rectangleParamsGenerator ?? throw new ArgumentNullException(nameof(rectangleParamsGenerator));
             _compactor = compactor ?? throw  new ArgumentNullException(nameof(compactor));
 
-            if (rectangleGenerator.Epsilon > compactor.Radius)
+            if (rectangleParamsGenerator.Epsilon > compactor.Radius)
             {
                 throw new ArgumentException();
             }
         }
         public IEnumerable<RectangleD> GetRectangles()
         {
-            bool rectanglesEdited;
+            bool rectangleIsAdded;
             do
             {
-                var rectangleParams = _rectangleGenerator.GenerateRectangle();
-                rectanglesEdited = _compactor.AddRectangle(rectangleParams);
+                var rectangleParams = _rectangleParamsGenerator.GenerateRectangleParams();
+                rectangleIsAdded = _compactor.AddRectangle(rectangleParams);
             }
-            while (rectanglesEdited);
+            while (rectangleIsAdded);
 
             return _compactor.Rectangles;
         }

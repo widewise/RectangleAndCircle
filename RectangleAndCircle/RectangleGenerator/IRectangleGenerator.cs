@@ -4,7 +4,8 @@ namespace RectangleAndCircle.RectangleGenerator
 {
     public interface IRectangleGenerator
     {
-        int Epsilon { get; }
-        RectangleParams GenerateRectangle();
+        int Radius { get; }
+
+        RectangleD GenerateRectangleInCircle(RectangleParams rectangleParams);
     }
 }

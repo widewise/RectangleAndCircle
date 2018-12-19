@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RectangleAndCircle.Compactor.InCircleChecker
+namespace RectangleAndCircle.RectangleGenerator.InCircleChecker
 {
     internal class InCircleChecker : IInCircleChecker
     {

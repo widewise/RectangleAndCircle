@@ -3,14 +3,14 @@ using RectangleAndCircle.Rectangle;
 
 namespace RectangleAndCircle.RectangleGenerator
 {
-    public class RandomRectangleGenerator : IRectangleGenerator
+    public class RectangleParamsGenerator : IRectangleParamsGenerator
     {
         private readonly int _epsilon;
         private readonly Random _random = new Random();
         public const int MinSize = 1;
         public int Epsilon => _epsilon;
 
-        public RandomRectangleGenerator(int epsilon)
+        public RectangleParamsGenerator(int epsilon)
         {
             if (epsilon <= MinSize)
             {
@@ -20,7 +20,7 @@ namespace RectangleAndCircle.RectangleGenerator
             _epsilon = epsilon;
         }
 
-        public RectangleParams GenerateRectangle()
+        public RectangleParams GenerateRectangleParams()
         {
             var a = _random.Next(MinSize, _epsilon);
             var b = _random.Next(MinSize, _epsilon);

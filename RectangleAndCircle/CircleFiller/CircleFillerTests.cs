@@ -14,7 +14,7 @@ namespace RectangleAndCircle.CircleFiller
         {
             var radius = 2;
             var epsilon = radius + 1;
-            var rectangleGeneratorMock = new Mock<IRectangleGenerator>();
+            var rectangleGeneratorMock = new Mock<IRectangleParamsGenerator>();
             rectangleGeneratorMock.Setup(g => g.Epsilon).Returns(() => epsilon);
             var compactorMock = new Mock<ICompactor>();
             compactorMock.Setup(c => c.Radius).Returns(() => radius);

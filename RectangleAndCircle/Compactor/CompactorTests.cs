@@ -9,36 +9,10 @@ namespace RectangleAndCircle.Compactor
     public class CompactorTests
     {
         [Test]
-        public void ShouldTrueThenAddRectangleWithWidthAndHeightLessDiameter()
+        public void ShouldThrowWhenAddAttemptCountEqualZero()
         {
-            var compactor = CompactorFactory.Create(10, 1);
-            var rectangleParams = new RectangleParams(2, 3);
-
-            var isAdded = compactor.AddRectangle(rectangleParams);
-
-            isAdded.Should().BeTrue();
-        }
-
-        [Test]
-        public void ShouldFalseThenAddRectangleWidthMoreDiameter()
-        {
-            var compactor = CompactorFactory.Create(2, 1);
-            var rectangleParams = new RectangleParams(5, 3);
-
-            Action action = () => compactor.AddRectangle(rectangleParams);
-
-            action.Should().Throw<PythagorasException>();
-        }
-
-        [Test]
-        public void ShouldFalseThenAddRectangleHeightMoreDiameter()
-        {
-            var compactor = CompactorFactory.Create(2, 1);
-            var rectangleParams = new RectangleParams(3, 5);
-
-            Action action = () => compactor.AddRectangle(rectangleParams);
-
-            action.Should().Throw<PythagorasException>();
+            Action action = () => CompactorFactory.Create(3, 0);
+            action.Should().Throw<ArgumentException>();
         }
 
         [Test]
